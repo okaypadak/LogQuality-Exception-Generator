@@ -29,5 +29,10 @@ public class Main {
 
 
     }
+}
 
+class SubClass {
+    public void other() {
+        System.out.printf("This is a test metod");
+    }
 }
