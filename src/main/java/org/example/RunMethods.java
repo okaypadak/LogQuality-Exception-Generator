@@ -15,12 +15,29 @@ public class RunMethods {
         }
     }
 
+    public void mathMethodNoTry() {
+        int sonuc = 5 / 0 ;
+    }
+
+    public void mathMethod() {
+
+        try {
+            int sonuc = 5 / 0 ;
+        } catch (Exception e) {
+            logException(e, "ERROR");
+        }
+    }
+
     public void runtimeMethod() {
         try {
             throw new RuntimeException("Dakikada bir runtime exception fırlatıldı!");
         } catch (RuntimeException e) {
             logException(e, "ERROR");
         }
+    }
+
+    public void runtimeMethodNoTry() {
+        throw new RuntimeException("No try Dakikada bir runtime exception fırlatıldı!");
     }
 
     public void ioMethod() {

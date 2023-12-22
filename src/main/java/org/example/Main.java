@@ -1,14 +1,16 @@
 package org.example;
 
+import java.sql.SQLException;
 import java.util.Timer;
 import java.util.TimerTask;
 
 
 public class Main {
     public static void main(String[] args) {
-        Timer timer = new Timer();
-        timer.schedule(new ThrowExceptionsTask(), 0, 60000);
+
         try {
+            Timer timer = new Timer();
+            timer.schedule(new ThrowExceptionsTask(), 500, 60000);
             Thread.sleep(600000);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -19,12 +21,19 @@ public class Main {
         @Override
         public void run() {
 
-            RunMethods runMethods = new RunMethods();
+            try {
+                RunMethods runMethods = new RunMethods();
 
-            runMethods.databaseMethod();
-            runMethods.runtimeMethod();
-            runMethods.ioMethod();
-            runMethods.warnMethod();
+                runMethods.databaseMethod();
+                runMethods.runtimeMethod();
+                runMethods.ioMethod();
+                runMethods.warnMethod();
+                runMethods.mathMethod();
+                runMethods.mathMethodNoTry();
+            } catch (Exception e) {
+                System.out.printf("\n");
+            }
+
         }
 
 
@@ -32,7 +41,10 @@ public class Main {
 }
 
 class SubClass {
-    public void other() {
+    public void other() throws SQLException {
         System.out.printf("This is a test metod");
+        throw new SQLException("Sub metodta SQL exception fırlatıldı!");
     }
+
+
 }
