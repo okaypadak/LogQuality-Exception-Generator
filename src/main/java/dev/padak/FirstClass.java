@@ -1,16 +1,16 @@
-package org.example;
+package dev.padak;
 
 import java.sql.SQLException;
 import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class Main {
+public class FirstClass {
     public static void main(String[] args) {
 
         try {
             Timer timer = new Timer();
-            timer.schedule(new ThrowExceptionsTask(), 500, 60000);
+            timer.schedule(new ThrowExceptionsTask(), 2000, 60000);
             Thread.sleep(600000);
         } catch (InterruptedException e) {
             e.printStackTrace();

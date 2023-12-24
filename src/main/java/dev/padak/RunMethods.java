@@ -1,4 +1,4 @@
-package org.example;
+package dev.padak;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -59,14 +59,12 @@ public class RunMethods {
 
     private static final String LOG_FILE_NAME = "log.txt";
     private void logException(Exception e, String logLevel) {
+
         try (PrintWriter writer = new PrintWriter(new FileWriter(LOG_FILE_NAME, true))) {
-            // Log dosyasına yaz
             writer.println(logLevel + " - Exception: " + e.getMessage());
             e.printStackTrace(writer);
-
-            // Konsola yaz
             System.out.println(logLevel + " - Exception logged: " + e.getMessage());
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
