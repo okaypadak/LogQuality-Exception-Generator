@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
-public class RunMethods {
+public class TryCatchMetod {
 
     public void databaseMethod() {
         try {
@@ -15,16 +15,13 @@ public class RunMethods {
         }
     }
 
-    public void mathMethodNoTry() {
-        int sonuc = 5 / 0 ;
-    }
-
-    public void mathMethod() {
+    public void mathMethod() throws Exception {
 
         try {
             int sonuc = 5 / 0 ;
         } catch (Exception e) {
             logException(e, "ERROR");
+            throw new Exception("Tekrar throw firlatildi");
         }
     }
 
@@ -36,13 +33,8 @@ public class RunMethods {
         }
     }
 
-    public void runtimeMethodNoTry() {
-        throw new RuntimeException("No try Dakikada bir runtime exception fırlatıldı!");
-    }
-
     public void ioMethod() {
         try {
-            // IOException fırlat
             throw new IOException("Dakikada bir IO exception fırlatıldı!");
         } catch (IOException e) {
             logException(e, "ERROR");
