@@ -49,6 +49,50 @@ public class TryCatchMetod {
         }
     }
 
+    public void nestedMethod() throws Exception {
+
+
+        Output output = new Output();
+        InsideClass insideClass = new InsideClass();
+
+        System.out.println("nestedMethod step 1");
+        try {
+            insideClass.insideMetod();
+
+            try {
+                System.out.println("nestedMethod step 2");
+                output.setSonuc("00");
+                output.setAciklama("Başarılı");
+
+            } catch (Exception e) {
+                System.out.println("nestedMethod step 3");
+                throw new Exception("Hata!");
+            }
+
+        } catch (Exception e) {
+            System.out.println("nestedMethod step 4");
+        }
+
+
+
+        try {
+            System.out.println("nestedMethod step 5");
+            output.setSonuc("00");
+            output.setAciklama("Başarılı");
+
+        } catch (Exception e) {
+            System.out.println("nestedMethod step 6");
+            output.setSonuc("DD");
+            output.setAciklama("Sunucu hatası yakalandı");
+
+            return;
+        }
+
+        System.out.println("nestedMethod step 7");
+    }
+
+
+
     private static final String LOG_FILE_NAME = "log.txt";
     private void logException(Exception e, String logLevel) {
 

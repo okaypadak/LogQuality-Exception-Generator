@@ -41,6 +41,12 @@ public class FirstClass {
             tryCatchMetod.warnMethod();
 
             try {
+                tryCatchMetod.nestedMethod();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+            try {
                 tryCatchMetod.mathMethod();
             } catch (Exception e) {
                 logException(e, "WARN");
